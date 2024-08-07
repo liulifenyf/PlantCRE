@@ -14,13 +14,4 @@ This repository contains the code and data used in our research on precise engin
 - **Trained_models/**: Directory containing the trained models for the respective frameworks.
 
 
-If you use this code or data in your research, please cite our paper:@article{your_paper,
-  title={Precise Engineering of Gene Expression by Editing Plasticity},
-  author={Your Name and Co-authors},
-  journal={Journal Name},
-  year={2024},
-  volume={XX},
-  number={XX},
-  pages={XX-XX},
-  doi={XX.XXXX/XXXXX}
-}
+If you use this code or data in your research, please cite our paper：Precise Engineering of Gene Expression by Editing Plasticity
