@@ -71,9 +71,9 @@ def basenji_model(input_shape=[120000, 4], L=11):
     
     Di=1
     for i in range(L):
+        x = residual_block(x, D=Di)
         Di=Di*1.5
         Di=int(np.round(Di))
-        x = residual_block(x, D=Di)
 
     x = conv_block(x, C=2*channels_num, W=1, D=1)
     x = Dropout(0.05)(x)
