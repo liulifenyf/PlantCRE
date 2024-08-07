@@ -24,12 +24,12 @@ class GELU(tf.keras.layers.Layer):
         return tf.keras.activations.sigmoid(tf.constant(1.702) * x) * x
 
 
-def exponential_linspace_int(start, end, num, divisible_by=24):
+def exponential_linspace_int(start, end, num):
     """Exponentially increasing values of integers."""
     def _round(x):
         return int(np.round(x / divisible_by) * divisible_by)
 
-    base = np.exp(np.log(end / start) / (num - 1))
+    base = (target_value / initial_value) ** (1 / (num_layers - 1))
     return [_round(start * base**i) for i in range(num)]
 
 
