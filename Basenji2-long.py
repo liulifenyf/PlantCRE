@@ -12,7 +12,7 @@ from tensorflow.keras.layers import Input, \
                                     MaxPooling1D
 from tensorflow.keras.models import Model
 
-batch_size = 16
+batch_size = 32
 epochs = 100
 channels_num = 720
 
@@ -24,13 +24,15 @@ class GELU(tf.keras.layers.Layer):
         return tf.keras.activations.sigmoid(tf.constant(1.702) * x) * x
 
 
-def exponential_linspace_int(start, end, num):
-    """Exponentially increasing values of integers."""
-    def _round(x):
-        return int(np.round(x / divisible_by) * divisible_by)
-
-    base = (target_value / initial_value) ** (1 / (num_layers - 1))
-    return [_round(start * base**i) for i in range(num)]
+def exponential_linspace_int(initial_value, target_value, num_layers):
+    factor = (target_value / initial_value) ** (1 / num_layers))
+    values = []
+    # Calculate and store values
+    value = initial_value
+    for _ in range(num_layers+1):
+        values.append(np.round(value))
+        value *= factor
+    return values[1:]
 
 
 def conv_block(x, C=channels_num, W=1, D=1, kernel_initializer='he_normal', l2_scale=0):
