@@ -8,17 +8,19 @@ from tensorflow.keras.layers import Input, \
 from tensorflow.keras.models import Model,load_model
 
 
-batch_size = 64
+batch_size = 32
 epochs = 100
 channels_num = 512
  
-def exponential_linspace_int(start, end, num, divisible_by=24):
-    """Exponentially increasing values of integers."""
-    def _round(x):
-        return int(np.round(x / divisible_by) * divisible_by)
-
-    base = np.exp(np.log(end / start) / (num - 1))
-    return [_round(start * base**i) for i in range(num)]
+def exponential_linspace_int(initial_value, target_value, num_layers):
+    factor = (target_value / initial_value) ** (1 / num_layers))
+    values = []
+    # Calculate and store values
+    value = initial_value
+    for _ in range(num_layers+1):
+        values.append(np.round(value))
+        value *= factor
+    return values[1:]
 
 
 class GELU(tf.keras.layers.Layer):
