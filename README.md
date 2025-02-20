@@ -1,6 +1,6 @@
 # PlantCRE
 
-Welcome to the official repository for the paper **"Precise Engineering of Gene Expression by Editing Plasticity"**.
+Welcome to the official repository for the paper **"Precise engineering of gene expression by editing plasticity"**.
 
 ## Overview
 
